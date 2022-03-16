@@ -5,6 +5,7 @@ import { AutoModule } from './automobiles/automobiles.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AuthController } from './auth/auth.controller';
 import { AuthModule } from './auth/auth.module';
+import { PostModule } from './post/post.module';
 @Module({
   imports: [
     AuthModule,
@@ -13,6 +14,7 @@ import { AuthModule } from './auth/auth.module';
       useUnifiedTopology: true,
     }),
     AutoModule,
+    PostModule,
   ],
   controllers: [AuthController],
 })

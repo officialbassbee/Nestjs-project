@@ -9,6 +9,22 @@ import { JwtStrategy } from './strategies/jwt-auth.strategy';
 import { LocalStrategy } from './strategies/local.strategy';
 import { JwtModule } from '@nestjs/jwt';
 
+// @Module({
+//   imports: [
+//     ConfigModule.forRoot(),
+//     MongooseModule.forFeature([{ name: 'User', schema: Authschema }]),
+//     PassportModule,
+//     JwtModule.register({
+//       secret: process.env.JWT_SECRET,
+//       signOptions: { expiresIn: '120s' },
+//     }),
+//   ],
+
+//   controllers: [AuthController],
+//   providers: [AuthService, LocalStrategy, JwtStrategy],
+//   exports: [AuthService],
+// })
+
 @Module({
   imports: [
     ConfigModule.forRoot(),
@@ -16,10 +32,9 @@ import { JwtModule } from '@nestjs/jwt';
     PassportModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET,
-      signOptions: { expiresIn: '120s' },
+      signOptions: { expiresIn: '1h' },
     }),
   ],
-
   controllers: [AuthController],
   providers: [AuthService, LocalStrategy, JwtStrategy],
   exports: [AuthService],
